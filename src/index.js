@@ -1,23 +1,14 @@
 const express = require("express");
+const dbConnection = require("./config/database");
+const router = require("./router");
 const app = express();
 const port = 5000;
 
-const production = [
-  {
-    id: 1,
-    productName: "bach",
-    description: "abc",
-  },
-  {
-    id: 2,
-    productName: "bach2",
-    description: "abc",
-  },
-];
+// db connect
+dbConnection();
 
-app.get("/bach", function (req, res) {
-  res.json(production); //
-});
+// config router
+app.use("/api", router);
 
 app.listen(port, () => {
   console.log("listening on port:" + port);
