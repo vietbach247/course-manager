@@ -1,13 +1,11 @@
 const express = require("express");
+const getCourse = require("../controller/Course/getCourse");
+const getCourses = require("../controller/Course/getCourses");
 
 const courseRouter = express.Router();
 
-courseRouter.get("/", function (req, res) {
-  res.send("Hello course!");
-});
+courseRouter.get("/", getCourses);
 
-courseRouter.get("/detail", function (req, res) {
-  res.send("Hello course detail!");
-});
+courseRouter.get("/detail", getCourse);
 
 module.exports = courseRouter;

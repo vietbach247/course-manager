@@ -7,6 +7,14 @@ const port = 5000;
 // db connect
 dbConnection();
 
+// Config body
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.use(express.json());
+
 // config router
 app.use("/api", router);
 

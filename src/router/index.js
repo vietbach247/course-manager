@@ -1,7 +1,7 @@
 const express = require("express");
 const userRouter = require("./user");
 const courseRouter = require("./course");
-const contentRouter = require("./content");
+const commentRouter = require("./comment");
 
 const router = express.Router();
 
@@ -13,6 +13,6 @@ router.use("/users", userRouter);
 
 router.use("/courses", courseRouter);
 
-router.use("/contents", contentRouter);
+router.use("/comment", commentRouter);
 
 module.exports = router;
