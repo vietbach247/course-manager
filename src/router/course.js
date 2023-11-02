@@ -19,6 +19,6 @@ courseRouter.post("/", createCourse);
 courseRouter.delete("/:courseId", deleteCourse);
 
 // put
-courseRouter.delete("/:courseId", updateCourse);
+courseRouter.put("/:courseId", updateCourse);
 
 module.exports = courseRouter;

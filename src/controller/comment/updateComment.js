@@ -1,19 +1,24 @@
-const userModel = require("../../models/User");
+const commentModel = require("../../models/Comment");
 
 module.exports = async function (req, res) {
   try {
-    const userId = req.params.userId;
+    const commentId = req.params.commentId;
+
+    console.log(commentId);
+
     const data = req.body;
 
-    const user = await userModel.findOne({ _id: userId });
+    const comment = await commentModel.findOne({ _id: commentId });
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    console.log(comment);
+
+    if (!comment) {
+      return res.status(404).json({ message: "Comment not found" });
     }
 
-    await userModel.updateOne({ _id: userId }, data);
+    await commentModel.updateOne({ _id: commentId }, data);
 
-    return res.status(200).json({ userId });
+    return res.status(200).json({ commentId });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal server error " });
